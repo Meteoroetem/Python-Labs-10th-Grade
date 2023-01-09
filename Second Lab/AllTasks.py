@@ -54,7 +54,7 @@ Math: 90 Computer Science: 95 English: 100
     You're in a technological scientific reserve classroom
 
 Math: 85 Computer Science: 90 English: 85
-    You're in a mofetclassroom
+    You're in a mofet classroom
 
 Math: 56 Computer Science: 56 English: 56
     You're in a mofet classroom
