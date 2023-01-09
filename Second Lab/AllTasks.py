@@ -84,7 +84,5 @@ def Palindrome():
         print("It's a palindrome!!")
     else:
         print("Not a palindrome 8-(")
-
-
-
-
+def HostelPrice():
+    print
