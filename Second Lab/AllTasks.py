@@ -1,3 +1,4 @@
+import sys
 def Introduction():
     heigh=float(input("Enter your height\n"))
     if ( heigh>1.6 ):
@@ -53,7 +54,7 @@ Math: 90 Computer Science: 95 English: 100
     You're in a technological scientific reserve classroom
 
 Math: 85 Computer Science: 90 English: 85
-    You're in a mofetclassroom
+    You're in a mofet classroom
 
 Math: 56 Computer Science: 56 English: 56
     You're in a mofet classroom
@@ -84,5 +85,83 @@ def Palindrome():
         print("It's a palindrome!!")
     else:
         print("Not a palindrome 8-(")
+
 def HostelPrice():
-    print
+    group_size = int(input('Enter how many people in group ?:\n'))
+    rooms = group_size // 4 
+    if(group_size % 4) > 0:
+        rooms = rooms + 1 
+    print ('The cost is:', rooms * 100, 'Shekels')
+
+def TrafficLight():
+    inp = str(input("What's the color?\n"))
+    if inp.casefold() == "green":
+        print("Pass!")
+    elif inp.casefold() == "red":
+        print("Stop!")
+    else:
+        print("That's not a color, Try again!")
+        TrafficLight()
+
+def Grading():
+    grade = int(input("What's your test grade?\n"))
+    if grade >= 100:
+        print("Excellent!")
+    elif grade >= 90:
+        print("Very Good!")
+    elif grade >= 80:
+        print("Good.")
+    elif grade >= 60:
+        print("Almost good enough")
+    else:
+        print("Study more next time!!!")
+
+def TimeToSleep():
+    time=int(input('Enter current hour:\n')) 
+    if((time >= 14) and (time <16)) or (time >= 23) or (time <6): 
+        print ('It is rest time') 
+    else: 
+        print ('It is active time')
+
+def IsItLeapYear():
+    year = int(input("What year is it??\n"))
+    if year%4 == 0 and (year%100 != 0 or (year//100)%4==0):
+        print("It is leap year")
+
+
+
+#User Interface:
+def ChooseTask(taskNum):
+    match taskNum:
+        case 3:
+            Palindrome()
+        case 4:
+            HostelPrice()
+        case 5:
+            TrafficLight()
+        case 6:
+            Grading()
+        case 7:
+            TimeToSleep()
+        case 8:
+            IsItLeapYear()
+        case 0:
+            sys.exit()
+
+def Continue(taskNum):
+    message = str(input("Continue?\n[t]: Choose another task\n[e]: exit\n[a]: same task\n"))
+    match message:
+        case "t":
+            UserInterface()
+        case "e":
+            sys.exit()
+        case "a":
+            ChooseTask(taskNum)
+            Continue(taskNum)
+
+def UserInterface():
+    inp = int(input("What task do you want to check?\n[3]: Task 3\n[4]: Task 4\n[5]: Task 5\n[6]: Task 6\n[7]: Task 7\n[8]: Task 8\n[0]: Exit\n"))
+    ChooseTask(inp)
+    Continue(inp)
+            
+UserInterface()
