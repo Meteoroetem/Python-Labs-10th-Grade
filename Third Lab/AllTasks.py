@@ -1,24 +1,11 @@
-import python_weather
-import asyncio
-import os
-import sys
+import python_weather, asyncio, os, sys, statistics
 
 async def GetWeather():
-    async with python_weather.Client(format=python_weather.IMPERIAL) as client:
-
+    async with python_weather.Client(format=python_weather.METRIC) as client:
     # fetch a weather forecast from a city
         weather = await client.get("Tel Aviv")
-  
-    # returns the current day's forecast temperature (int)
+    # returns the weather
         return weather
-  
-    # get the weather forecast for a few days
-        for forecast in weather.forecasts:
-            print(forecast)
-  
-      # hourly forecasts
-        for hourly in forecast.hourly:
-            print(f' --> {hourly!r}')
 
 def FirstTask():
     cnt = 0
@@ -48,7 +35,18 @@ def FourthTask():
     for forecast in forecasts:
         temp = forecast.temperature
         date = forecast.date
-        print("At",date,"it will be",str(temp)+"°C!")
+        print("At",date,"it will be", end=' ')
+        if temp > 30:
+            print(str(temp)+"°C! Flaming hot!")
+        elif temp > 25:
+            print(str(temp)+"°C! Averege Israeli weather!")
+        elif temp > 17:
+            print(str(temp)+"°C! Nice!")
+        elif temp > 10:
+            print(str(temp)+"°C! Unusually cold!")
+        else:
+            print(str(temp)+"°C! Are you sure your in Israel?")
+
 
 def FifthTask():
     for i in range(1,10,1):
@@ -63,8 +61,30 @@ def FifthTask():
 def SixthTask():
     for i in range(1,10,1):
         grade = int(input("What is student " + str(i) + "'s grade? "))
-        if grade >= 250:
-            print("שילם דמי שכלול")
+        if grade == 999:
+            sys.exit()
+        elif grade >= 85:
+            print("ןייטצמ דימלת")
+        elif grade >= 65:
+            print("הפי דמול")
         else:
-            print("!!!עליך לשלם את חובותיך")
+            print("ךיגישה רפש")
 
+def SeventhTask():
+    h = int(input("What's the height?"))
+    heights = [h]
+    while h >= 0:
+        h = int(input("What's the height?"))
+        if h>0:
+            heights.append(h)
+    avrg = statistics.mean(heights)
+    print(avrg)
+
+def EighthTask():
+    inp = str(input("Type something: "))
+    for char in inp:
+        print( 2 * char, end="")
+def NinthTask():
+    inp = str(input('Type something: '))
+    print(inp.count(' ') + 1)
+FourthTask()
