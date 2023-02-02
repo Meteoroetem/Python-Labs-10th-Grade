@@ -87,4 +87,3 @@ def EighthTask():
 def NinthTask():
     inp = str(input('Type something: '))
     print(inp.count(' ') + 1)
-FourthTask()
