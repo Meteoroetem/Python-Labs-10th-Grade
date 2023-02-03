@@ -87,3 +87,41 @@ def EighthTask():
 def NinthTask():
     inp = str(input('Type something: '))
     print(inp.count(' ') + 1)
+
+#User Interface:
+def ChooseTask(taskNum):
+    match taskNum:
+        case 3:
+            ThirdTask()
+        case 4:
+            FourthTask()
+        case 5:
+            FifthTask()
+        case 6:
+            SixthTask()
+        case 7:
+            SeventhTask()
+        case 1:
+            FirstTask()
+        case 2:
+            SecondTask()
+        case 0:
+            sys.exit()
+
+def Continue(taskNum):
+    message = str(input("Continue?\n[t]: Choose another task\n[e]: exit\n[a]: same task\n"))
+    match message:
+        case "t":
+            UserInterface()
+        case "e":
+            sys.exit()
+        case "a":
+            ChooseTask(taskNum)
+            Continue(taskNum)
+
+def UserInterface():
+    inp = int(input("What task do you want to check?\n[1]: First task\n[2]: Second task\n[3]: Third Task\n[4]: Fourth task\n[5]: Fifth task\n[6]: Sixth task\n[7]: Seventh task\n[0]: Exit\n"))
+    ChooseTask(inp)
+    Continue(inp)
+            
+UserInterface()
