@@ -15,8 +15,16 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-	"string input":{
+	"string input variable":{
 		"prefix": "inp",
 		"body": "inp = str(input('${1:text}'))"
+	},
+    "string input":{
+		"prefix": "strin",
+		"body": "str(input('${1:text}'))"
+	},
+    "integer input":{
+		"prefix": "intin",
+		"body": "int(input('${1:text}'))"
 	}
 }
