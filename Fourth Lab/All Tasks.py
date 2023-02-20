@@ -16,4 +16,5 @@ def FourthTask(string):
     strArr = str(string).split(' ')
     for word in strArr:
         print(word[0], end="")
+    print()
 
