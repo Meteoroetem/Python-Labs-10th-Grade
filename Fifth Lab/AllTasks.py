@@ -11,3 +11,9 @@ def PrintMiddle(string):
     else:
         print(string[len(string)//2-1:len(string)//2+1])
 
+def FirstAndLast3Letters(string):
+   if len(string) < 3: return "***"
+   return string[:3] + string[-3:]
+
+def CountIs(string):
+   return string.upper().count("IS")

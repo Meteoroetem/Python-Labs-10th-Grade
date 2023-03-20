@@ -1,4 +1,9 @@
 import sys
+sys.path.append('../Python-Labs-10th-Grade')
+from UserInterface import UI
+
+functionsList = []
+
 def Introduction():
     heigh=float(input("Enter your height\n"))
     if ( heigh>1.6 ):
@@ -11,6 +16,8 @@ def Introduction():
     1.8: You are in a basketball team!!
     1.5: You are in a football team!!
     '''
+
+functionsList.append(Introduction)
 
 def Introduction2():
     print(" welcome to Python Class!!")
@@ -28,6 +35,8 @@ def Introduction2():
     1.8: You are in a basketball team!!
     1.6: You are in a football team!!
     '''
+
+functionsList.append(Introduction2)
 
 '''
 First Task:
@@ -47,6 +56,8 @@ def School():
         print("You are in a regular classroom")
     else:
         print("You're in a mofetclassroom")
+
+functionsList.append(School)
 
 '''
 Output:
@@ -77,6 +88,7 @@ else - Same as if with the opposite condition.
 elif - Same as else but you can add additional conditions.
 '''
 
+
 def Palindrome():
     num = int(input("Enter a three-digit-number:\n"))
     units = num%10
@@ -86,12 +98,16 @@ def Palindrome():
     else:
         print("Not a palindrome 8-(")
 
+functionsList.append(Palindrome)
+
 def HostelPrice():
     group_size = int(input('Enter how many people in group ?:\n'))
     rooms = group_size // 4 
     if(group_size % 4) > 0:
         rooms = rooms + 1 
     print ('The cost is:', rooms * 100, 'Shekels')
+
+functionsList.append(HostelPrice)
 
 def TrafficLight():
     inp = str(input("What's the color?\n"))
@@ -102,6 +118,8 @@ def TrafficLight():
     else:
         print("That's not a color, Try again!")
         TrafficLight()
+
+functionsList.append(TrafficLight)
 
 def Grading():
     grade = int(input("What's your test grade?\n"))
@@ -116,6 +134,8 @@ def Grading():
     else:
         print("Study more next time!!!")
 
+functionsList.append(Grading)
+
 def TimeToSleep():
     time=int(input('Enter current hour:\n')) 
     if((time >= 14) and (time <16)) or (time >= 23) or (time <6): 
@@ -123,13 +143,20 @@ def TimeToSleep():
     else: 
         print ('It is active time')
 
+functionsList.append(TimeToSleep)
+
 def IsItLeapYear():
     year = int(input("What year is it??\n"))
     if year%4 == 0 and (year%100 != 0 or (year//100)%4==0):
         print("It is leap year")
 
+functionsList.append(IsItLeapYear)
+
+myUI = UI(functionsList)
+myUI.UserInterface()
 
 
+'''
 #User Interface:
 def ChooseTask(taskNum):
     match taskNum:
@@ -165,3 +192,4 @@ def UserInterface():
     Continue(inp)
             
 UserInterface()
+'''

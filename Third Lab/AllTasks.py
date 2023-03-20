@@ -1,4 +1,7 @@
-import python_weather, asyncio, os, sys, statistics
+import python_weather, asyncio, statistics
+import sys
+sys.path.append('../Python-Labs-10th-Grade')
+from UserInterface import UI
 
 async def GetWeather():
     async with python_weather.Client(format=python_weather.METRIC) as client:
@@ -84,10 +87,15 @@ def EighthTask():
     inp = str(input("Type something: "))
     for char in inp:
         print( 2 * char, end="")
+    print()
 def NinthTask():
     inp = str(input('Type something: '))
     print(inp.count(' ') + 1)
 
+myUI = UI([FirstTask,SecondTask,ThirdTask,FourthTask,FifthTask,SixthTask,SeventhTask,EighthTask,NinthTask])
+myUI.UserInterface()
+
+'''
 #User Interface:
 def ChooseTask(taskNum):
     match taskNum:
@@ -125,3 +133,4 @@ def UserInterface():
     Continue(inp)
             
 UserInterface()
+'''
