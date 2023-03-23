@@ -4,8 +4,8 @@ def func():
         print("That is not a two digit number!! \n")
         func()
     else:
-        tens = (abs(n) - (abs(n) % 10))/10
         units = abs(n) % 10
+        tens = (abs(n) - units)/10
         if n > 0:
             print("The number, flipped is", int(units * 10 + tens))
         else:

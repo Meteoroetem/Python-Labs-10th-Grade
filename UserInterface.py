@@ -4,16 +4,16 @@ class UI:
     __functionList = []
     def UserInterface(self):
         try:
-            inp = int(input("What task do you want to check?\n[<task number>]: Choose the task you want\n[0]: Exit\n"))
-            if inp == 0:
+            inp = int(input(f"What task do you want to check?\n[1 to {len(self.__functionList)}]: Choose the task you want\n[e]: Exit\n"))
+            if inp == "e":
                 sys.exit()
-            if inp > len(self.__functionList) or inp < 1:
-                print(f"\nThere are only {len(self.__functionList)} tasks to choose from!\n")
-                self.UserInterface()
             self.__ChooseTask(inp)
             self.__Continue(inp)
         except ValueError:
             print("This is not a number!")
+            self.UserInterface()
+        except IndexError:
+            print(f"\nThere are only {len(self.__functionList)} tasks to choose from!\n")
             self.UserInterface()
 
     def __Continue(self, taskNum):
@@ -27,11 +27,18 @@ class UI:
                 self.__ChooseTask(taskNum)
                 self.__Continue(taskNum)
         print("This message means nothing to me!")
-        self.__Continue()
+        self.__Continue(taskNum)
 
 
     def __ChooseTask(self, taskNum):
-        self.__functionList[taskNum-1]()
+        try:
+            result = self.__functionList[taskNum-1]()
+            if result != None: print(result)
+        except TypeError:
+            inp = str(input('Write something: '))
+            result = self.__functionList[taskNum-1](inp)
+            if result != None: print(result)
+        
         
 
     
