@@ -32,7 +32,8 @@ The function replaces letters that are the same as the first with an asterisk
 
 def ReplaceWithLast(string):
     return string[-2:] + string[2:] if len(string) > 4 else string
-print(ReplaceWithLast(str(input())))
+
+
 def Verberize(string):
     if len(string) < 3: return string
     return string + "ly" if string[-3:] == "ing" else string + "ing"
